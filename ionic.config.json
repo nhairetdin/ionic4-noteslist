@@ -1,0 +1,7 @@
+{
+  "name": "noteslist",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
