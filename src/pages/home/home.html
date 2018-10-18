@@ -1,14 +1,31 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="custom">
     <ion-title>
-      Ionic Blank
+      Notes
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()"><ion-icon name="add-circle"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
+ 
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items">
+      <ion-item (click)="viewItem(item)">
+        <h2>{{item.title}}</h2>
+      </ion-item>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+      <ion-item-options side="right">
+        <ion-buttons end>
+          <button ion-button outline icon-only color="danger" (click)="deleteItem(item)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+          <button ion-button outline icon-only color="primary" (click)="editItem(item)">
+            <ion-icon name="build"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
